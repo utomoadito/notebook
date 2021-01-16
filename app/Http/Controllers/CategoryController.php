@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Category');
+        $categories = Category::orderBy('created_at', 'DESC')->get();
+        return Inertia::render('Category', ['categories' => $categories]);
     }
 
     /**
@@ -35,7 +37,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+        
+        return redirect()->back()->with('message', 'Save Data "'.$request->name.'" Successfully.');
     }
 
     /**
@@ -69,7 +75,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->back()->with('message', 'Update Data "'.$request->name.'" Successfully.');
     }
 
     /**
@@ -80,6 +90,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id); 
+        $category->delete();
+
+        return redirect()->back()->with('message', 'Delete Data "'.$category->name.'" Successfully.');
     }
 }
