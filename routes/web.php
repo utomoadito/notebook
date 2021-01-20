@@ -29,4 +29,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
     Route::resource('/category', CategoryController::class);
+    Route::resource('/note', NoteController::class);
 });
