@@ -23,6 +23,9 @@
                                 <jet-nav-link :href="route('category.index')" :active="route().current('category.index')">
                                     Category
                                 </jet-nav-link>
+                                <jet-nav-link :href="route('note.index')" :active="route().current('note.index')">
+                                    Note
+                                </jet-nav-link>
                             </div>
                         </div>
 
@@ -148,6 +151,9 @@
                         </jet-responsive-nav-link>
                         <jet-responsive-nav-link :href="route('category.index')" :active="route().current('category.index')">
                             Category
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link :href="route('note.index')" :active="route().current('note.index')">
+                            Note
                         </jet-responsive-nav-link>
                     </div>
 
