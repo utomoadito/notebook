@@ -18,7 +18,7 @@ class NoteController extends Controller
     {
         $notes = Note::orderBy('created_at', 'DESC')->with('category')->get();
         $categories = Category::all();
-        return Inertia::render('Note', ['notes' => $notes, 'categories' => $categories]);
+        return Inertia::render('Admin/Note', ['notes' => $notes, 'categories' => $categories]);
     }
 
     /**
