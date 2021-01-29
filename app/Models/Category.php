@@ -12,4 +12,8 @@ class Category extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
+    public function notes() {
+        return $this->hasMany(Note::class);
+    }
 }

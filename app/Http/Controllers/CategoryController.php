@@ -55,6 +55,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         $category = Category::find($id);
+        $category->notes = Category::find($id)->notes;
 
         return Inertia::render('CategoryDetail', [
             'categories' => $categories,

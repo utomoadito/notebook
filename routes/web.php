@@ -26,11 +26,12 @@ Route::get('/', function () {
     ]);
 });
 Route::get('/category/{id}', 'CategoryController@show');
+Route::get('/category/{categoryId}/note/{id}', 'NoteController@show');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Admin/Dashboard');
     })->name('dashboard');
     Route::resource('/category', CategoryController::class)->except(['show']);
-    Route::resource('/note', NoteController::class);
+    Route::resource('/note', NoteController::class)->except(['show']);
 });

@@ -1,26 +1,28 @@
 <template>
-    <div class="relative flex justify-center min-h-screen bg-gray-300 sm:pt-0">
+    <div class="relative flex justify-center min-h-full sm:pt-0">
         <aside
             class="flex-1 transform top-0 left-0 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
             :class="isOpen ? ' md:w-1/6 sm:w-1/2' : 'w-0'"
         >
             <span
-                @click="isOpen = false"
-                class="flex w-full items-center p-5 border-b"
+                @click="isOpen = true"
+                class="flex w-full items-center p-4 border-b"
             >
-                <h1 class="h-auto w-32 mx-auto">Hehey</h1>
+                <h1 class="h-auto w-52 text-2xl font-serif font-bold tracking-wider mx-auto">
+                    <inertia-link :href="'/'">NOTEBOOK</inertia-link>
+                </h1>
             </span>
             <template v-for="(category, index) in categories">
-                <a :key="index" :href="`/category/${category.id}`" 
+                <inertia-link :key="index" :href="`/category/${category.id}`" 
                     class="flex items-center p-4 hover:bg-indigo-500 hover:text-white"
                     :class="categoryId == category.id ? 'bg-indigo-500 text-white':''"
                 >
                     <span class="mr-2"></span>
                     <span>{{ category.name }}</span>
-                </a>
+                </inertia-link>
             </template>
         </aside>
-        <div class="flex-1 md:absolute ease-in-out transition-all duration-300" :class="isOpen ? 'md:w-2/3' : 'w-full'">
+        <div class="flex-1 md:absolute ease-in-out transition-all duration-300 min-h-screen bg-gray-300" :class="isOpen ? 'md:w-5/6 md:right-0' : 'w-full md:-right-0'">
             <nav class="flex fixed top-0 w-full items-center justify-between px-6 h-16 bg-white text-gray-700 border-b border-gray-200 z-10">
                 <div class="flex items-center">
                     <button class="mr-2" aria-label="Open Menu" @click="drawer">
@@ -89,8 +91,10 @@
                     ></div>
                 </div>
             </transition>
-            <div class="flex max-w-6xl md:mx-auto py-32 lg:px-8">
-                <slot></slot>
+            <div class="flex max-w-6xl md:mx-auto py-32">
+                <div class="flex flex-col p-6 sm bg-white shadow-xl w-full">
+                    <slot></slot>
+                </div>
             </div>
         </div>
     </div>
