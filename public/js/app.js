@@ -3962,6 +3962,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5094,6 +5100,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony import */ var _Layouts_FrontLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/FrontLayout */ "./resources/js/Layouts/FrontLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55344,6 +55359,68 @@ var render = function() {
                                                   }
                                                 })
                                               ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "w-full px-2 mb-5"
+                                              },
+                                              [
+                                                _c(
+                                                  "label",
+                                                  {
+                                                    staticClass: "block mb-1",
+                                                    attrs: {
+                                                      for: "formGridCode_card"
+                                                    }
+                                                  },
+                                                  [_vm._v("Description")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "textarea",
+                                                  {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.form.description,
+                                                        expression:
+                                                          "form.description"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "w-full h-16 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border focus:shadow-outline",
+                                                    attrs: { required: "" },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.form.description
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.form,
+                                                          "description",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "                                                Tells what your thinking\n                                            "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
                                             )
                                           ]
                                         )
@@ -57299,7 +57376,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("p", { staticClass: "mb-7 text-lg" }, [
-        _vm._v("Lorem ipsum dolor sit amet")
+        _vm._v(_vm._s(_vm.category.description))
       ]),
       _vm._v(" "),
       _c(
@@ -57399,7 +57476,27 @@ var render = function() {
         categories: _vm.categories
       }
     },
-    [_vm._v("\n    Blabanika\n")]
+    [
+      _c(
+        "h1",
+        {
+          staticClass:
+            "font-semibold text-3xl text-gray-800 leading-tight pb-3 mb-5 border-b-2 border-gray-300"
+        },
+        [_vm._v("\n        Personal Notes\n    ")]
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "mb-7 text-lg" }, [
+        _vm._v(
+          "\n        Ini adalah aplikasi yang mana digunakan untuk mencatat sesuatu hal yang penting dan berguna bagi saya sendiri atau mungkin khalayak umum. \n        Dengan ini, saya bisa mengingat hal-hal penting yang telah saya catat dan juga dapat membantu menambah serta membandingkan literasi pengetahuan yang ada.\n        "
+        ),
+        _c("br"),
+        _c("br"),
+        _vm._v(
+          "\n        This is an application which is used to note something important and useful for myself or perhaps the general public. \n        With this, I can remember important things that I have noted and can also help increase and compare existing knowledge literacy.\n    "
+        )
+      ])
+    ]
   )
 }
 var staticRenderFns = []

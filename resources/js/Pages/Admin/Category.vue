@@ -104,6 +104,12 @@
                                                 <label class="block mb-1" for="formGridCode_card">Category Name</label>
                                                 <input type="text" name="name" v-model="form.name" class="w-full h-10 px-3 text-base placeholder-gray-600 border focus:shadow-outline" required/>
                                             </div>
+                                            <div class="w-full px-2 mb-5">
+                                                <label class="block mb-1" for="formGridCode_card">Description</label>
+                                                <textarea v-model="form.description" class="w-full h-16 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border focus:shadow-outline" required>
+                                                    Tells what your thinking
+                                                </textarea>
+                                            </div>
                                             <!-- <div class="w-full px-2 mb-5 md:w-1/2">
                                                 <label class="block mb-1" for="formGridCode_name">First name</label>
                                                 <input class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" id="formGridCode_name"/>

@@ -40,6 +40,7 @@ class CategoryController extends Controller
     {
         $category = new Category;
         $category->name = $request->name;
+        $category->description = $request->description;
         $category->save();
         
         return redirect()->back()->with('message', 'Save Data "'.$request->name.'" Successfully.');
@@ -87,6 +88,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->name = $request->name;
+        $category->description = $request->description;
         $category->save();
 
         return redirect()->back()->with('message', 'Update Data "'.$request->name.'" Successfully.');
