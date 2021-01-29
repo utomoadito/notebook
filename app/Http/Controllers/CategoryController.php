@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class CategoryController extends Controller
 {
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::orderBy('created_at', 'DESC')->get();
-        return Inertia::render('Category', ['categories' => $categories]);
+        return Inertia::render('Admin/Category', ['categories' => $categories]);
     }
 
     /**
@@ -52,7 +53,16 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $categories = Category::all();
+        $category = Category::find($id);
+        $category->notes = Category::find($id)->notes;
+
+        return Inertia::render('CategoryDetail', [
+            'categories' => $categories,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'category' => $category
+        ]);
     }
 
     /**

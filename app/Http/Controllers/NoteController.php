@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Note;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class NoteController extends Controller
 {
@@ -18,7 +19,7 @@ class NoteController extends Controller
     {
         $notes = Note::orderBy('created_at', 'DESC')->with('category')->get();
         $categories = Category::all();
-        return Inertia::render('Note', ['notes' => $notes, 'categories' => $categories]);
+        return Inertia::render('Admin/Note', ['notes' => $notes, 'categories' => $categories]);
     }
 
     /**
@@ -54,9 +55,22 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($categoryId, $id)
     {
-        //
+        $note = Note::find($id);
+        $categories = Category::all();
+
+        if ($categoryId == $note->category_id) {
+            return Inertia::render('NoteDetail', [
+                'categories' => $categories,
+                'categoryId' => $categoryId,
+                'canLogin' => Route::has('login'),
+                'canRegister' => Route::has('register'),
+                'note' => $note
+            ]);
+        } else {
+            return Inertia::render('Error', ['status' => 404]);
+        }
     }
 
     /**

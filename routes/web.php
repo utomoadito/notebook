@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Category;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +17,21 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('FrontDashboard', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        'categories' => Category::all()
     ]);
 });
+Route::get('/category/{id}', 'CategoryController@show');
+Route::get('/category/{categoryId}/note/{id}', 'NoteController@show');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Admin/Dashboard');
     })->name('dashboard');
-    Route::resource('/category', CategoryController::class);
-    Route::resource('/note', NoteController::class);
+    Route::resource('/category', CategoryController::class)->except(['show']);
+    Route::resource('/note', NoteController::class)->except(['show']);
 });

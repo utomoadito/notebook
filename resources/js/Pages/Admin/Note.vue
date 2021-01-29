@@ -37,9 +37,6 @@
                                                     Name
                                                 </th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Content
-                                                </th>
-                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Category
                                                 </th>
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -57,9 +54,6 @@
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm font-medium text-gray-900">{{ note.name }}</div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm font-medium text-gray-900">{{ note.content }}</div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm font-medium text-gray-900">{{ note.category.name }}</div>
@@ -161,7 +155,7 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout';
     import moment from 'moment';
-    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic'; 
 
     export default {
         props: {
