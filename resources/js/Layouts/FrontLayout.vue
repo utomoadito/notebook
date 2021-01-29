@@ -61,9 +61,10 @@
                             </button>
                             <button
                                 title="Register"
+                                v-if="canRegister"
                                 class="flex-1 items-center p-3 font-medium mr-2 text-center bg-gray-300 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-400"
                             >
-                                <inertia-link v-if="canRegister" :href="route('register')">
+                                <inertia-link :href="route('register')">
                                     Register
                                 </inertia-link>
                             </button>
@@ -168,7 +169,7 @@
     export default {
         props: {
             canLogin: Boolean,
-            canRegister: Boolean,
+            // canRegister: Boolean,
             laravelVersion: String,
             phpVersion: String,
             categories: Array,

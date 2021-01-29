@@ -65,7 +65,7 @@ class NoteController extends Controller
                 'categories' => $categories,
                 'categoryId' => $categoryId,
                 'canLogin' => Route::has('login'),
-                'canRegister' => Route::has('register'),
+                // 'canRegister' => Route::has('register'),
                 'note' => $note
             ]);
         } else {

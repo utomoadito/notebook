@@ -61,7 +61,7 @@ class CategoryController extends Controller
         return Inertia::render('CategoryDetail', [
             'categories' => $categories,
             'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
+            // 'canRegister' => Route::has('register'),
             'category' => $category
         ]);
     }

@@ -3447,10 +3447,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     canLogin: Boolean,
-    canRegister: Boolean,
+    // canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String,
     categories: Array,
@@ -54157,16 +54158,16 @@ var render = function() {
                                 1
                               ),
                               _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "flex-1 items-center p-3 font-medium mr-2 text-center bg-gray-300 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-400",
-                                  attrs: { title: "Register" }
-                                },
-                                [
-                                  _vm.canRegister
-                                    ? _c(
+                              _vm.canRegister
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-1 items-center p-3 font-medium mr-2 text-center bg-gray-300 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-400",
+                                      attrs: { title: "Register" }
+                                    },
+                                    [
+                                      _c(
                                         "inertia-link",
                                         {
                                           attrs: { href: _vm.route("register") }
@@ -54177,10 +54178,10 @@ var render = function() {
                                           )
                                         ]
                                       )
-                                    : _vm._e()
-                                ],
-                                1
-                              )
+                                    ],
+                                    1
+                                  )
+                                : _vm._e()
                             ]
                       ],
                       2

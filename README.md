@@ -19,6 +19,9 @@ $ php artisan key:generate
 # Migrate database table
 $ php artisan migrate
 
+# Run seed
+$ php artisan db:seed
+
 # Compile for development
 $ npm run dev
 # or

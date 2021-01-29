@@ -19,7 +19,7 @@ use Illuminate\Foundation\Application;
 Route::get('/', function () {
     return Inertia::render('FrontDashboard', [
         'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+        // 'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
         'categories' => Category::all()
@@ -27,6 +27,9 @@ Route::get('/', function () {
 });
 Route::get('/category/{id}', 'CategoryController@show');
 Route::get('/category/{categoryId}/note/{id}', 'NoteController@show');
+Route::get('/register', function () {
+    return Inertia::render('Error', ['status' => 404]);
+})->name('register');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
