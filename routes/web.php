@@ -23,12 +23,12 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
         'categories' => Category::all()
-    ]);
+    ])->withViewData(['meta' => ['title' => 'Selamat Datang di Notebook']]);
 });
 Route::get('/category/{id}', 'CategoryController@show');
 Route::get('/category/{categoryId}/note/{id}', 'NoteController@show');
 Route::get('/register', function () {
-    return Inertia::render('Error', ['status' => 404]);
+    return Inertia::render('Error', ['status' => 404])->withViewData(['meta' => ['title' => 'Not Found']]);
 })->name('register');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

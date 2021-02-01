@@ -59,7 +59,7 @@
                                     Login
                                 </inertia-link>
                             </button>
-                            <button
+                            <!-- <button
                                 title="Register"
                                 v-if="canRegister"
                                 class="flex-1 items-center p-3 font-medium mr-2 text-center bg-gray-300 rounded hover:bg-gray-400 focus:outline-none focus:bg-gray-400"
@@ -67,7 +67,7 @@
                                 <inertia-link :href="route('register')">
                                     Register
                                 </inertia-link>
-                            </button>
+                            </button> -->
                         </template>
                     </div>
                 </div>

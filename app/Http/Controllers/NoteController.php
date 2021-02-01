@@ -67,9 +67,9 @@ class NoteController extends Controller
                 'canLogin' => Route::has('login'),
                 // 'canRegister' => Route::has('register'),
                 'note' => $note
-            ]);
+            ])->withViewData(['meta' => ['title' => $note->name]]);
         } else {
-            return Inertia::render('Error', ['status' => 404]);
+            return Inertia::render('Error', ['status' => 404])->withViewData(['meta' => ['title' => 'Not Found']]);
         }
     }
 

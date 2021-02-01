@@ -57,13 +57,16 @@ class CategoryController extends Controller
         $categories = Category::all();
         $category = Category::find($id);
         $category->notes = Category::find($id)->notes;
+        $meta = [
+            'title' => 'Dafter Catatan '.$category->name
+        ];
 
         return Inertia::render('CategoryDetail', [
             'categories' => $categories,
             'canLogin' => Route::has('login'),
             // 'canRegister' => Route::has('register'),
             'category' => $category
-        ]);
+        ])->withViewData(['meta' => $meta]);
     }
 
     /**
