@@ -172,7 +172,11 @@
             form: {},
             ckeditor: {
                 editor: ClassicEditor,
-                editorConfig: {}
+                editorConfig: {
+                    ckfinder: {
+                        uploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json'
+                    }
+                }
             }
         }),
         methods: {
