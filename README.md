@@ -22,6 +22,9 @@ $ php artisan migrate
 # Run seed
 $ php artisan db:seed
 
+# Run CKFinder download
+$ php artisan ckfinder:download
+
 # Compile for development
 $ npm run dev
 # or
